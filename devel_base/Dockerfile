@@ -1,9 +1,9 @@
-FROM medalhkr/archlinux
+FROM pritunl/archlinux
 MAINTAINER medalhkr <medalhkr@gmail.com>
-# install
-RUN pacman -Syu --noconfirm --needed base-devel vim emacs-nox git tmux openssh
+# install & update
+RUN pacman -Syu --noconfirm --needed base base-devel vim emacs-nox git tmux
 
-RUN ssh-keygen -A
+# user add
 RUN useradd -m -g users -s /bin/bash medalhkr
-RUN echo "medalhkr ALL=(ALL) ALL" > /etc/sudoers.d/medalhkr
-RUN echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+RUN mkdir /home/documents
+
