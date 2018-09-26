@@ -1,0 +1,53 @@
+[server]
+
+[mysqld]
+
+[galera]
+
+[embedded]
+
+[mariadb]
+skip-name-resolve
+
+# 文字コード
+character-set-server = utf8mb4
+collation-server = utf8mb4_bin
+init-connect = SET NAMES utf8mb4
+
+lower_case_table_names=1
+
+max_allowed_packet = 1M
+transaction_isolation = READ-COMMITTED
+
+max_connections = 50
+thread_cache_size = 50
+table_open_cache = 100
+innodb_flush_log_at_trx_commit = 1
+innodb_data_file_path = ibdata1:1G;ibdata2:1G
+innodb_file_per_table
+innodb_write_io_threads = 4
+innodb_read_io_threads = 4
+innodb_thread_concurrency = 8
+
+# グローバルバッファ
+key_buffer_size = 64M
+innodb_buffer_pool_size = 256M
+innodb_log_buffer_size = 8M
+max_heap_table_size = 64M
+tmp_table_size = 64M
+query_cache_size = 64M
+
+# スレッドバッファ
+read_buffer_size = 2M
+read_rnd_buffer_size = 2M
+sort_buffer_size = 2M
+join_buffer_size = 2M
+
+# ログ
+expire_logs_days = 7
+max-binlog-size = 100M
+innodb_log_file_size = 128M
+binlog_cache_size = 128M
+
+[mariadb-10.3]
+
